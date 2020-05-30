@@ -9,6 +9,10 @@ var lastX:float = 1
 var lastVelocity:Vector2
 var camera:Camera2D
 
+onready var gun:AnimatedSprite = $GunNode
+onready var gunAnimation = $GunAnimationPlayer
+
+
 var on_ground = false
 
 
@@ -40,11 +44,19 @@ func _unhandled_input(_event:InputEvent):
 		if !Input.is_action_pressed("ui_left") && !Input.is_action_pressed("ui_right"):
 			lastVelocity.x = 0
 			lastVelocity.y = 1
+	if Input.is_action_just_pressed("ui_accept"):
+		gunAnimation.play("Fire")
 		
 
 
 
-func _physics_process(_delta:float):
+func _physics_process(delta:float):
+	if Input.is_action_pressed("aim_left"):
+		gun.rotate(-delta*2)
+	if Input.is_action_pressed("aim_right"):
+		gun.rotate(delta*2)
+	
+	
 	if Input.is_action_pressed("ui_down"):
 		velocity.y += GRAVITY*2
 	else:
@@ -67,7 +79,18 @@ func _physics_process(_delta:float):
 	else:
 		on_ground = false
 	
-	if abs(velocity.x) > ANIMATION_THRESHOLD:
+	if !on_ground:
+		if velocity.y > 0:
+			if lastVelocity.x > 0:
+				animationPlayer.play("JumpRight")
+			elif lastVelocity.x < 0:
+				animationPlayer.play("JumpLeft")
+		if velocity.y < 0:
+			if lastVelocity.x > 0:
+				animationPlayer.play("LandRight")
+			elif lastVelocity.x < 0:
+				animationPlayer.play("LandLeft")
+	elif abs(velocity.x) > ANIMATION_THRESHOLD:
 		if velocity.x > ANIMATION_THRESHOLD:
 			animationPlayer.play("WalkRight")
 			lastVelocity = velocity;

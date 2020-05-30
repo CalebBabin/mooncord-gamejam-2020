@@ -20,6 +20,5 @@ script = ExtResource( 3 )
 [node name="HandSprite" type="AnimatedSprite" parent="Hand"]
 position = Vector2( 12, 132 )
 frames = SubResource( 1 )
-frame = 1
 speed_scale = 0.3
 playing = true
