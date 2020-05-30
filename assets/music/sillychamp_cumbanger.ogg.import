@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sillychamp_cumbanger.ogg-00de9c53c7bbc68f7fb73c2a0350bb1c.oggstr"
+
+[deps]
+
+source_file="res://assets/music/sillychamp_cumbanger.ogg"
+dest_files=[ "res://.import/sillychamp_cumbanger.ogg-00de9c53c7bbc68f7fb73c2a0350bb1c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
