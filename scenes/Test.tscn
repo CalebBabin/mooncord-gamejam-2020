@@ -10,6 +10,14 @@
 [ext_resource path="res://assets/img/MRE/hand-open-posterized.png" type="Texture" id=8]
 [ext_resource path="res://assets/img/MRE/hand-grasped-posterized.png" type="Texture" id=9]
 
+[sub_resource type="SpriteFrames" id=15]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 96, 32, 96, 32, 128, 0, 128 )
 
@@ -152,15 +160,17 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=15]
-animations = [ {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
 [node name="Node2D" type="Node2D"]
+
+[node name="HandOfGod" type="AnimatedSprite" parent="."]
+position = Vector2( 682, -222 )
+frames = SubResource( 15 )
+frame = 1
+speed_scale = 0.3
+playing = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 13 )
@@ -168,6 +178,9 @@ cell_size = Vector2( 128, 128 )
 cell_custom_transform = Transform2D( 0, 0, 0, 0, 0, 0 )
 format = 1
 tile_data = PoolIntArray( 1, 0, 4, 2, 0, 5, 7, 0, 4, 8, 0, 5, 65536, 0, 4, 65537, 0, 65537, 65538, 0, 3, 65540, 0, 4, 65541, 0, 65538, 65542, 0, 65538, 65543, 0, 65537, 65544, 0, 3, 65548, 0, 4, 65549, 0, 5, 196604, 0, 4, 196605, 0, 65538, 196606, 0, 5, 131072, 0, 65540, 131073, 0, 65539, 131074, 0, 65541, 131076, 0, 65540, 131077, 0, 65539, 131078, 0, 65539, 131079, 0, 65539, 131080, 0, 65541, 131083, 0, 4, 131084, 0, 65537, 131085, 0, 3, 262140, 0, 2, 262141, 0, 6, 262142, 0, 3, 196618, 0, 4, 196619, 0, 65537, 196620, 0, 0, 196621, 0, 65541, 327676, 0, 2, 327677, 0, 6, 327678, 0, 3, 262153, 0, 4, 262154, 0, 65537, 262155, 0, 6, 262156, 0, 3, 393212, 0, 2, 393213, 0, 6, 393214, 0, 65536, 393215, 0, 65538, 327680, 0, 65538, 327681, 0, 65538, 327682, 0, 65538, 327683, 0, 65538, 327684, 0, 65538, 327685, 0, 65538, 327686, 0, 65538, 327687, 0, 65538, 327688, 0, 65538, 327689, 0, 65537, 327690, 0, 6, 327691, 0, 6, 327692, 0, 3, 458748, 0, 65540, 458749, 0, 65539, 458750, 0, 65539, 458751, 0, 65539, 393216, 0, 65539, 393217, 0, 65539, 393218, 0, 65539, 393219, 0, 65539, 393220, 0, 65539, 393221, 0, 65539, 393222, 0, 65539, 393223, 0, 65539, 393224, 0, 65539, 393225, 0, 65539, 393226, 0, 65539, 393227, 0, 65539, 393228, 0, 65541 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Node2D" parent="." instance=ExtResource( 5 )]
 position = Vector2( 164, -63 )
@@ -176,9 +189,3 @@ position = Vector2( 164, -63 )
 position = Vector2( 314, -9 )
 frames = SubResource( 14 )
 frame = 1
-
-[node name="HandOfGod" type="AnimatedSprite" parent="."]
-position = Vector2( 669, 18 )
-frames = SubResource( 15 )
-speed_scale = 0.3
-playing = true

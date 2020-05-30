@@ -481,7 +481,7 @@ speed_scale = 3.0
 
 [node name="Body" type="AnimatedSprite" parent="."]
 frames = SubResource( 25 )
-frame = 11
+frame = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -7.04201, 6.79938 )
