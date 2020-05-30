@@ -8,7 +8,17 @@ var velocity:Vector2
 var lastX:float = 1
 var lastVelocity:Vector2
 var camera:Camera2D
-const maxSpeed = 200
+
+var on_ground = false
+
+
+const MAX_SPEED = 200
+const ACCELERATION = 10
+const FRICTION = 0.5
+const JUMP_POWER = 600
+const GRAVITY = 20
+const FLOOR = Vector2(0, -1)
+const ANIMATION_THRESHOLD = MAX_SPEED/2
 
 onready var animationPlayer = $AnimationPlayer
 
@@ -23,38 +33,51 @@ func setup_camera() -> void:
 	add_child(camera)
 	
 func _unhandled_input(_event:InputEvent):
-	lastVelocity = velocity;
-	velocity = Vector2()
-	
-	if Input.is_action_pressed("ui_right"):
-		velocity.x += 1
-	if Input.is_action_pressed("ui_left"):
-		velocity.x -= 1
-	if Input.is_action_pressed("ui_down"):
-		velocity.y += 1
-	if Input.is_action_pressed("ui_up"):
-		velocity.y -= 1
-	velocity = velocity.normalized()
+	if Input.is_action_just_pressed("ui_up") && on_ground:
+		velocity.y -= JUMP_POWER
+	if Input.is_action_just_pressed("ui_down"):
+		velocity.y = max(0, velocity.y)
+		if !Input.is_action_pressed("ui_left") && !Input.is_action_pressed("ui_right"):
+			lastVelocity.x = 0
+			lastVelocity.y = 1
+		
 
 
 
 func _physics_process(_delta:float):
-	var _ignored = self.move_and_slide(velocity*maxSpeed)
-	if velocity != Vector2.ZERO:
-		if velocity.x > 0:
+	if Input.is_action_pressed("ui_down"):
+		velocity.y += GRAVITY*2
+	else:
+		velocity.y += GRAVITY
+	
+	if Input.is_action_pressed("ui_right"):
+		velocity.x += ACCELERATION
+	if Input.is_action_pressed("ui_left"):
+		velocity.x -= ACCELERATION
+
+	if !Input.is_action_pressed("ui_left") && !Input.is_action_pressed("ui_right"):
+		velocity.x = lerp(velocity.x, 0, FRICTION)
+
+	velocity.x = max(-MAX_SPEED, min(MAX_SPEED, velocity.x))
+	
+	velocity = move_and_slide(velocity, FLOOR)
+	
+	if (is_on_floor()):
+		on_ground = true
+	else:
+		on_ground = false
+	
+	if abs(velocity.x) > ANIMATION_THRESHOLD:
+		if velocity.x > ANIMATION_THRESHOLD:
 			animationPlayer.play("WalkRight")
-		elif velocity.x < 0:
+			lastVelocity = velocity;
+		elif velocity.x < -ANIMATION_THRESHOLD:
 			animationPlayer.play("WalkLeft")
-		elif velocity.y > 0:
-			animationPlayer.play("WalkDown")
-		elif velocity.y < 0:
-			animationPlayer.play("WalkUp")
+			lastVelocity = velocity;
 	else:
 		if lastVelocity.x > 0:
 			animationPlayer.play("IdleRight")
-		if lastVelocity.x < 0:
+		elif lastVelocity.x < 0:
 			animationPlayer.play("IdleLeft")
-		if lastVelocity.y > 0:
+		else:
 			animationPlayer.play("IdleDown")
-		if lastVelocity.y < 0:
-			animationPlayer.play("IdleUp")
