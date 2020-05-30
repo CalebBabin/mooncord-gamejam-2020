@@ -1,30 +1,150 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=22 format=2]
 
-[ext_resource path="res://assets/img/pliskin_character_behind.png" type="Texture" id=1]
-[ext_resource path="res://assets/img/pliskin_turned_left.png" type="Texture" id=2]
-[ext_resource path="res://assets/img/pliskin_turned_right.png" type="Texture" id=3]
-[ext_resource path="res://assets/img/pliskin_character.png" type="Texture" id=4]
+[ext_resource path="res://assets/img/pliskin_walking_right.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Player.gd" type="Script" id=5]
+[ext_resource path="res://assets/img/pliskin_walking_left.png" type="Texture" id=6]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 6 )
+region = Rect2( 128, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 6 )
+region = Rect2( 256, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 6 )
+region = Rect2( 384, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 6 )
+region = Rect2( 512, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 6 )
+region = Rect2( 640, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 1 )
+region = Rect2( 128, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 1 )
+region = Rect2( 256, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 1 )
+region = Rect2( 384, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 1 )
+region = Rect2( 512, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 1 )
+region = Rect2( 640, 0, 128, 128 )
+
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 3 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 17.0698
-height = 33.6073
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 11.4554
+height = 9.71927
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="Animation" id=16]
+resource_name = "IdleLeft"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+[sub_resource type="Animation" id=17]
+resource_name = "IdleRight"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 10 ]
+}
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D"]
-position = Vector2( 0, -50 )
-frames = SubResource( 1 )
+[sub_resource type="Animation" id=9]
+resource_name = "WalkLeft"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+[sub_resource type="Animation" id=18]
+resource_name = "WalkRight"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 7, 8, 9, 10, 11 ]
+}
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+script = ExtResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 7 )
+frame = 10
+offset = Vector2( 0, -50 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.220367, 3.63604 )
 rotation = 1.5708
-shape = SubResource( 2 )
+shape = SubResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/IdleLeft = SubResource( 16 )
+anims/IdleRight = SubResource( 17 )
+anims/WalkLeft = SubResource( 9 )
+anims/WalkRight = SubResource( 18 )

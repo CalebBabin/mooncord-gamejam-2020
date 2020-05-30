@@ -20,10 +20,9 @@ func setup_main_menu() -> void:
 func _on_start_game(_level:int) -> void:
 	remove_current_scene()
 	
-	var GameplayAndUIScene:PackedScene = preload("res://scenes/test.tscn")
+	var GameplayAndUIScene:PackedScene = preload("res://scenes/Test.tscn")
 	var gameplay_and_ui_scene:Node = GameplayAndUIScene.instance()
 	add_child(gameplay_and_ui_scene)
-	gameplay_and_ui_scene.init()
 
 func _on_game_over():
 	remove_current_scene()
