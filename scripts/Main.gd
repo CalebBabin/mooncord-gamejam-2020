@@ -1,5 +1,11 @@
 extends Node
 
+onready var TitleMusic = preload("res://scenes/music/TitleMusic.tscn").instance()
+onready var AmbienceMusic = preload("res://scenes/music/Ambience.tscn").instance()
+
+func stop_all_music () -> void:
+	TitleMusic.stop_music()
+	AmbienceMusic.stop_music()
 
 # Remove and free the current scene from the tree. We always assume that the
 # first child is the root of the scene.
