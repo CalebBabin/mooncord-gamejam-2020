@@ -23,9 +23,6 @@ func setup_camera() -> void:
 	add_child(camera)
 	
 func _unhandled_input(_event:InputEvent):
-	if velocity != Vector2.ZERO:
-		lastVelocity = velocity
-
 	velocity = Vector2()
 	
 	if Input.is_action_pressed("ui_right"):
@@ -43,18 +40,23 @@ func _unhandled_input(_event:InputEvent):
 func _physics_process(_delta:float):
 	var _ignored = self.move_and_slide(velocity*maxSpeed)
 	if velocity != Vector2.ZERO:
-		if velocity.y != 0:
+		if velocity.y < 0:
+			animationPlayer.play("WalkUp")
+		elif velocity.x == 0: 
 			if lastX > 0:
 				animationPlayer.play("WalkRight")
 			if lastX < 0:
 				animationPlayer.play("WalkLeft")
-		if velocity.x > 0:
-			animationPlayer.play("WalkRight")
-			lastX = velocity.x
-		if velocity.x < 0:
-			animationPlayer.play("WalkLeft")
-			lastX = velocity.x
+		else: 
+			if velocity.x > 0:
+				animationPlayer.play("WalkRight")
+				lastX = velocity.x
+			if velocity.x < 0:
+				animationPlayer.play("WalkLeft")
+				lastX = velocity.x
 	else:
+		if lastVelocity.y < 0:
+			animationPlayer.play("IdleUp")
 		if lastX > 0:
 			animationPlayer.play("IdleRight")
 		if lastX < 0:
