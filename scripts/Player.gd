@@ -18,19 +18,21 @@ var smashing = false
 var gun_equiped = false
 
 
-const MAX_SPEED = 200
+const MAX_SPEED = 400
 const ACCELERATION = 10
-const FRICTION = 0.5
+const FRICTION = 0.7
 const JUMP_POWER = 600
 const GRAVITY = 20
 const FLOOR = Vector2(0, -1)
-const ANIMATION_THRESHOLD = MAX_SPEED/2
+const ANIMATION_THRESHOLD = MAX_SPEED/4
 
 onready var animationPlayer = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	setup_camera()
+	
+	gun.scale.x = 0
 	
 	animationPlayer.connect("animation_finished", self, "_on_AnimationPlayer_finished")
 
@@ -77,6 +79,8 @@ func _process(delta):
 		gun.scale.x += delta*10
 	if !gun_equiped && gun.scale.x > 0:
 		gun.scale.x -= delta*10
+	if !gun_equiped && gun.scale.x < 0:
+		gun.scale.x = 0
 	
 
 func _physics_process(delta:float):
