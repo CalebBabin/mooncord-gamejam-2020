@@ -82,7 +82,7 @@ func _unhandled_input(_event:InputEvent):
 					animationPlayer.play("SmashRight")
 				elif lastVelocity.x < 0:
 					animationPlayer.play("SmashLeft")
-		
+
 func _on_AnimationPlayer_finished(animation_name):
 	if animation_name == "SmashLeft" || animation_name == "SmashRight":
 		animationPlayer.stop()
