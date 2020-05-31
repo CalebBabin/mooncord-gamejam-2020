@@ -26,7 +26,8 @@ const MAX_SPEED = 400
 const ACCELERATION = 10
 const FRICTION = 0.7
 const JUMP_POWER = 800
-const GRAVITY = 10
+const GUN_KNOCKBACK = 325
+const GRAVITY = 20
 const FLOOR = Vector2(0, -1)
 const ANIMATION_THRESHOLD = MAX_SPEED/4
 const JUMP_AVAILABILITY_TIMEOUT = 250
@@ -74,6 +75,7 @@ func _unhandled_input(_event:InputEvent):
 				gunAnimation.play("Fire")
 				firing_gun = true
 				emit_signal("fire_bullet", self.position+gun.position, gun.rotation, 90)
+				velocity += Vector2(cos(gun.rotation), sin(gun.rotation))*-1*GUN_KNOCKBACK
 			else: 
 				smashing = true
 				if lastVelocity.x > 0:
