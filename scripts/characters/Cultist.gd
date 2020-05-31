@@ -47,7 +47,8 @@ func _physics_process(_delta:float):
 			lastDirection = direction
 		else:
 			direction = 0
-	velocity.y += GRAVITY
+	if !on_ground:
+		velocity.y += GRAVITY
 	
 	velocity.x += ACCELERATION*direction
 
@@ -84,3 +85,9 @@ func _physics_process(_delta:float):
 				animationPlayer.play("IdleLeft")
 			else:
 				animationPlayer.play("IdleDown")
+
+func attack_hit(attack) -> void:
+	print("Hit by attack", attack)
+func projectile_hit(projectile) -> void:
+	print("Cultist hit by projectile, ouch!", projectile)
+	queue_free()

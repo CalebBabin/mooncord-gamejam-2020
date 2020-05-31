@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/img/cultist_spin.png" type="Texture" id=1]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=33]
 radius = 46.0
 height = 16.0
 
@@ -66,7 +66,7 @@ region = Rect2( 1664, 0, 128, 128 )
 atlas = ExtResource( 1 )
 region = Rect2( 1792, 0, 128, 128 )
 
-[sub_resource type="SpriteFrames" id=10]
+[sub_resource type="SpriteFrames" id=34]
 animations = [ {
 "frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
 "loop": true,
@@ -74,7 +74,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=35]
 resource_name = "Attack"
 length = 2.16667
 step = 0.0833333
@@ -91,7 +91,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 0 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=36]
 resource_name = "Idle"
 length = 0.1
 tracks/0/type = "value"
@@ -112,15 +112,15 @@ scale = Vector2( 2, 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -4, 8 )
-shape = SubResource( 1 )
+shape = SubResource( 33 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 10 )
+frames = SubResource( 34 )
 speed_scale = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Attack = SubResource( 11 )
-anims/Idle = SubResource( 13 )
+anims/Attack = SubResource( 35 )
+anims/Idle = SubResource( 36 )

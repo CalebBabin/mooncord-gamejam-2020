@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Projectile",
+"language": "GDScript",
+"path": "res://scripts/Bullet.gd"
+} ]
 _global_script_class_icons={
-
+"Projectile": ""
 }
 
 [application]
@@ -18,10 +23,6 @@ _global_script_class_icons={
 config/name="Mooncord Gamejam 2020"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
-
-[debug]
-
-settings/stdout/print_fps=true
 
 [display]
 
