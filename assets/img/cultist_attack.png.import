@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/blue_jump_2.png-9d7ad24e1d1715bd7e11a2e84d778629.stex"
+path="res://.import/cultist_attack.png-7de9f8db5c17f321e19baf8eb64fe86d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/blue_jump_2.png"
-dest_files=[ "res://.import/blue_jump_2.png-9d7ad24e1d1715bd7e11a2e84d778629.stex" ]
+source_file="res://assets/img/cultist_attack.png"
+dest_files=[ "res://.import/cultist_attack.png-7de9f8db5c17f321e19baf8eb64fe86d.stex" ]
 
 [params]
 
