@@ -5,14 +5,16 @@ class_name Projectile
 const SPEED = 1500
 
 var velocity_direction:Vector2
-var TTL = 100
+var TTL = 10
 var direction
+var die_on_world_collide
 
 var is_dead:bool = false
 
-func init(position, direction_angle, distance) -> void:
+func init(position, direction_angle, distance, die_on_world = false, ttl = 10) -> void:
 	velocity_direction = Vector2(cos(direction_angle), sin(direction_angle))
-		
+	die_on_world_collide = die_on_world
+	TTL = ttl
 	self.set_rotation(direction_angle)
 	self.position = position + velocity_direction*distance
 	
@@ -56,10 +58,12 @@ func collided_with_body(body:Node) -> void:
 	if is_dead:
 		return
 		
-	is_dead = true
-	queue_free()
-	
+	if die_on_world_collide:
+		is_dead = true
+		queue_free()
 	
 	if body.has_method("projectile_hit"):
 		body.projectile_hit(self)
+		is_dead = true
+		queue_free()
 		

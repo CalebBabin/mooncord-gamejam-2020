@@ -11,7 +11,7 @@ func start_game() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	start_game_button.connect("pressed", self, "start_game")
+	var _ignored = start_game_button.connect("pressed", self, "start_game")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://assets/img/blue_walking.png" type="Texture" id=1]
 [ext_resource path="res://assets/img/blue_idle.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scripts/Player.gd" type="Script" id=5]
 [ext_resource path="res://assets/img/blue_jump_2.png" type="Texture" id=6]
 [ext_resource path="res://assets/img/blue_SLAMM.png" type="Texture" id=7]
+[ext_resource path="res://assets/img/blue_crouch.png" type="Texture" id=8]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 4 )
@@ -166,7 +167,7 @@ region = Rect2( 256, 0, 128, 128 )
 
 [sub_resource type="SpriteFrames" id=39]
 animations = [ {
-"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ) ],
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -175,6 +176,61 @@ animations = [ {
 [sub_resource type="CapsuleShape2D" id=40]
 radius = 24.1179
 height = 60.9888
+
+[sub_resource type="Animation" id=58]
+resource_name = "CrouchLeft"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 31 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=59]
+resource_name = "CrouchRight"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 31 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=41]
 length = 0.1
@@ -189,6 +245,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 20 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=42]
@@ -590,6 +658,8 @@ tracks/0/keys = {
 }
 
 [node name="Player" type="KinematicBody2D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource( 5 )
 
 [node name="GunNode" type="Node2D" parent="."]
@@ -604,14 +674,17 @@ frames = SubResource( 7 )
 speed_scale = 3.0
 
 [node name="Body" type="AnimatedSprite" parent="."]
+position = Vector2( -3.943, -0.285 )
 frames = SubResource( 39 )
-frame = 28
+frame = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -7.04201, 6.79938 )
 shape = SubResource( 40 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/CrouchLeft = SubResource( 58 )
+anims/CrouchRight = SubResource( 59 )
 anims/IdleDown = SubResource( 41 )
 anims/IdleLeft = SubResource( 42 )
 anims/IdleRight = SubResource( 43 )

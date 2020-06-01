@@ -22,7 +22,7 @@ script = ExtResource( 3 )
 current = true
 
 [node name="menu69" type="Sprite" parent="."]
-position = Vector2( 230, -54 )
+position = Vector2( 259, -68 )
 texture = ExtResource( 6 )
 
 [node name="beanms" type="Sprite" parent="."]

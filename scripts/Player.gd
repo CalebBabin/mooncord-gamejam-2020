@@ -31,6 +31,7 @@ const GRAVITY = 20
 const FLOOR = Vector2(0, -1)
 const ANIMATION_THRESHOLD = MAX_SPEED/4
 const JUMP_AVAILABILITY_TIMEOUT = 250
+const KNOCKBACK_AMOUNT = 800
 
 const MAX_GUN_SPEED = 5.0
 const GUN_ACCELERATION = 0.5
@@ -57,12 +58,12 @@ func _unhandled_input(_event:InputEvent):
 	if Input.is_action_just_pressed("ui_up") && last_on_ground + JUMP_AVAILABILITY_TIMEOUT >= OS.get_ticks_msec():
 		velocity.y -= JUMP_POWER
 		last_on_ground = 0
-	if Input.is_action_just_pressed("ui_down"):
-		velocity.y = max(0, velocity.y)
-		if !Input.is_action_pressed("ui_left") && !Input.is_action_pressed("ui_right"):
-			lastVelocity.x = 0
-			lastVelocity.y = 1
-	
+	if Input.is_action_pressed("ui_down"):
+		collision_mask = Util.convert_enum_to_bitmask([Constants.PhysicsMasks.WORLD_COLLISIONS])
+		collision_layer = Util.convert_enum_to_bitmask([Constants.PhysicsMasks.WORLD_COLLISIONS])
+	else:
+		collision_mask = Util.convert_enum_to_bitmask([Constants.PhysicsMasks.WORLD_COLLISIONS, Constants.PhysicsMasks.PLATFORM_COLLISIONS])
+		collision_layer = Util.convert_enum_to_bitmask([Constants.PhysicsMasks.WORLD_COLLISIONS, Constants.PhysicsMasks.PLATFORM_COLLISIONS])
 	
 	if Input.is_action_pressed("aim_up"):
 		gun_equiped = true
@@ -74,7 +75,7 @@ func _unhandled_input(_event:InputEvent):
 			if gun_equiped:
 				gunAnimation.play("Fire")
 				firing_gun = true
-				emit_signal("fire_bullet", self.position+gun.position, gun.rotation, 90)
+				emit_signal("fire_bullet", self.position+gun.position, gun.rotation, 90, Constants.PhysicsMasks.ENEMY_PROJECTILE_COLLISIONS)
 				velocity += Vector2(cos(gun.rotation), sin(gun.rotation))*-1*GUN_KNOCKBACK
 			else: 
 				smashing = true
@@ -114,10 +115,7 @@ func _physics_process(delta:float):
 		gun_speed = 0
 	
 	if !on_ground:
-		if Input.is_action_pressed("ui_down"):
-			velocity.y += GRAVITY*2
-		else:
-			velocity.y += GRAVITY
+		velocity.y += GRAVITY
 	
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += ACCELERATION
@@ -151,6 +149,15 @@ func _physics_process(delta:float):
 					animationPlayer.play("JumpRight")
 				elif lastVelocity.x < 0:
 					animationPlayer.play("JumpLeft")
+		elif Input.is_action_pressed("ui_down") && !Input.is_action_pressed("ui_left") && !Input.is_action_pressed("ui_right"):
+			if velocity.x > 0:
+				animationPlayer.play("CrouchRight")
+			elif velocity.x < 0:
+				animationPlayer.play("CrouchLeft")
+			elif lastVelocity.x > 0:
+				animationPlayer.play("CrouchRight")
+			else:
+				animationPlayer.play("CrouchLeft")
 		elif abs(velocity.x) > ANIMATION_THRESHOLD:
 			if velocity.x > ANIMATION_THRESHOLD:
 				animationPlayer.play("WalkRight")
@@ -164,11 +171,13 @@ func _physics_process(delta:float):
 			elif lastVelocity.x < 0:
 				animationPlayer.play("IdleLeft")
 			else:
-				animationPlayer.play("IdleDown")
+				animationPlayer.play("IdleRight")
 
 func attack_hit(attack) -> void:
 	print("Hit by attack", attack)
 
 func projectile_hit(projectile) -> void:
 	print("Player hit by projectile, ouch!", projectile)
+	
+	velocity += Vector2(projectile.velocity_direction.x, max(projectile.velocity_direction.y, 0.5))*KNOCKBACK_AMOUNT
 	
