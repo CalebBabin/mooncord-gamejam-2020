@@ -31,7 +31,10 @@ Constants="*res://scripts/Constants.gd"
 
 [display]
 
-window/vsync/use_vsync=false
+window/size/width=1920
+window/size/height=960
+window/size/borderless=true
+window/size/fullscreen=true
 
 [input]
 

@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 class_name Projectile
 
-const SPEED = 1500
+var speed
 
 var velocity_direction:Vector2
 var TTL = 10
@@ -11,7 +11,8 @@ var die_on_world_collide
 
 var is_dead:bool = false
 
-func init(position, direction_angle, distance, die_on_world = false, ttl = 10) -> void:
+func init(position, direction_angle, distance, die_on_world = false, ttl = 10, projectile_speed = 1500) -> void:
+	speed = projectile_speed
 	velocity_direction = Vector2(cos(direction_angle), sin(direction_angle))
 	die_on_world_collide = die_on_world
 	TTL = ttl
@@ -32,7 +33,7 @@ func get_damage() -> float:
 
 func _physics_process(delta:float) -> void:
 	
-	var _ignored = move_and_slide(velocity_direction * SPEED)
+	var _ignored = move_and_slide(velocity_direction * speed)
 	
 	if get_slide_count() > 0:
 		# Note that if a projectile is colliding with multiple bodies (e.g. the

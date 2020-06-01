@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pickle_mech.png-9b1d2d4216371df3cf3711f8b616664e.stex"
+path="res://.import/ladder.png-e0e1325be974388a4e9247b738ffc3da.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/pickle_mech.png"
-dest_files=[ "res://.import/pickle_mech.png-9b1d2d4216371df3cf3711f8b616664e.stex" ]
+source_file="res://assets/img/ladder.png"
+dest_files=[ "res://.import/ladder.png-e0e1325be974388a4e9247b738ffc3da.stex" ]
 
 [params]
 

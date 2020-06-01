@@ -34,7 +34,7 @@ script = ExtResource( 14 )
 [node name="WorldMap" parent="." instance=ExtResource( 13 )]
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 5080, 1256 )
+position = Vector2( -3365, 247 )
 
 [node name="HandOfGod" type="AnimatedSprite" parent="."]
 position = Vector2( 2242, 290 )
@@ -79,19 +79,19 @@ frame = 1
 [node name="Cultists" type="Node2D" parent="."]
 
 [node name="Cultist" parent="Cultists" instance=ExtResource( 10 )]
-position = Vector2( -4010, 880 )
+position = Vector2( -4036, 795 )
 
 [node name="Cultist2" parent="Cultists" instance=ExtResource( 10 )]
-position = Vector2( -2069, 464 )
+position = Vector2( -2730, 619 )
 
 [node name="Cultist3" parent="Cultists" instance=ExtResource( 10 )]
-position = Vector2( -295, 296 )
+position = Vector2( -217, 299 )
 
 [node name="Cultist4" parent="Cultists" instance=ExtResource( 10 )]
-position = Vector2( 1757, 202 )
+position = Vector2( 1921, 250 )
 
 [node name="Cultist5" parent="Cultists" instance=ExtResource( 10 )]
-position = Vector2( 4028, 716 )
+position = Vector2( 4346, 1228 )
 
 [node name="Cultist6" parent="Cultists" instance=ExtResource( 10 )]
-position = Vector2( 4507, 1019 )
+position = Vector2( 7722, 1350 )

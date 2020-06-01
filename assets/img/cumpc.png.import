@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pickle_mech.png-9b1d2d4216371df3cf3711f8b616664e.stex"
+path="res://.import/cumpc.png-899b53693cbe6ec395c98dccc5812d19.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/pickle_mech.png"
-dest_files=[ "res://.import/pickle_mech.png-9b1d2d4216371df3cf3711f8b616664e.stex" ]
+source_file="res://assets/img/cumpc.png"
+dest_files=[ "res://.import/cumpc.png-899b53693cbe6ec395c98dccc5812d19.stex" ]
 
 [params]
 

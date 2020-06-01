@@ -27,12 +27,12 @@ func _ready():
 #	pass
 func _on_fire_bullet(position, direction, distance, collision_mask) -> void:
 	var bullet = Bullet.instance()
-	bullet.init(position, direction, distance, true)
+	bullet.init(position, direction, distance, true, 10, 1500)
 	bullet.collision_layer = Util.convert_enum_to_bitmask([Constants.PhysicsMasks.WORLD_COLLISIONS, collision_mask])
 	add_child(bullet)
 
 func _on_fire_laser(position, direction, distance, collision_mask) -> void:
 	var bullet = Laser.instance()
-	bullet.init(position, direction, distance/2, false, 1)
+	bullet.init(position, direction, distance/2, false, 1, 750)
 	bullet.collision_layer = Util.convert_enum_to_bitmask([Constants.PhysicsMasks.WORLD_COLLISIONS, collision_mask])
 	add_child(bullet)

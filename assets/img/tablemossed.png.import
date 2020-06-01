@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pickle_mech.png-9b1d2d4216371df3cf3711f8b616664e.stex"
+path="res://.import/tablemossed.png-e8685549ebf853dc35fa7031b07e5c95.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/pickle_mech.png"
-dest_files=[ "res://.import/pickle_mech.png-9b1d2d4216371df3cf3711f8b616664e.stex" ]
+source_file="res://assets/img/tablemossed.png"
+dest_files=[ "res://.import/tablemossed.png-e8685549ebf853dc35fa7031b07e5c95.stex" ]
 
 [params]
 
