@@ -105,11 +105,8 @@ func _physics_process(_delta:float):
 func attack_hit(attack) -> void:
 	print("Hit by attack", attack)
 func projectile_hit(projectile) -> void:
-	print("Cultist hit by projectile, ouch!", projectile)
 	velocity += projectile.velocity_direction*KNOCKBACK_AMOUNT
 	if dying == 0:
 		dying = OS.get_ticks_msec()
 		$CollisionShape2D.scale.x = 0
 		$CollisionShape2D.scale.y = 0.25
-		
-	#queue_free()

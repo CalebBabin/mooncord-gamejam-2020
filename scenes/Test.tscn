@@ -69,7 +69,7 @@ playing = true
 offset = Vector2( 0, -71.333 )
 
 [node name="player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 996, -46 )
+position = Vector2( -5387, 305 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 3719, 882 )
