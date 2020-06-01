@@ -718,7 +718,7 @@ texture = ExtResource( 8 )
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="."]
 position = Vector2( -867, 274 )
 frames = SubResource( 13 )
-frame = 4
+frame = 9
 speed_scale = 1.5
 playing = true
 
@@ -754,14 +754,20 @@ tile_data = PoolIntArray( -65498, 0, 0, -65497, 0, 65539, -65496, 0, 1, 38, 0, 3
 
 [node name="Platforms" type="Node2D" parent="."]
 
+[node name="WoodenPlatform4" parent="Platforms" instance=ExtResource( 12 )]
+position = Vector2( 6088, 845 )
+
+[node name="WoodenPlatform5" parent="Platforms" instance=ExtResource( 12 )]
+position = Vector2( 6896, 846 )
+
 [node name="WoodenPlatform" parent="Platforms" instance=ExtResource( 12 )]
-position = Vector2( -3720, 379 )
+position = Vector2( -3713, 425 )
 
 [node name="WoodenPlatform2" parent="Platforms" instance=ExtResource( 12 )]
-position = Vector2( -3716, 585 )
+position = Vector2( -3711, 612 )
 
 [node name="WoodenPlatform3" parent="Platforms" instance=ExtResource( 12 )]
-position = Vector2( -3719, 753 )
+position = Vector2( -3711, 808 )
 
 [node name="StaticBody2D" parent="Platforms" instance=ExtResource( 12 )]
 position = Vector2( 3414, 836 )
@@ -772,9 +778,6 @@ position = Vector2( 3113, 695 )
 [node name="StaticBody2D3" parent="Platforms" instance=ExtResource( 12 )]
 position = Vector2( 4570, 1290 )
 
-[node name="StaticBody2D4" parent="Platforms" instance=ExtResource( 12 )]
-position = Vector2( 4202, 1110 )
-
 [node name="Light2D" type="Light2D" parent="."]
 visible = false
 position = Vector2( -57.0001, 331 )
@@ -784,12 +787,12 @@ texture_scale = 0.65
 energy = 0.51
 shadow_enabled = true
 
+[node name="terminal" type="Sprite" parent="."]
+position = Vector2( 6337, 936 )
+texture = ExtResource( 18 )
+
 [node name="Computer" parent="." instance=ExtResource( 19 )]
 position = Vector2( 6661, 960 )
-
-[node name="terminal" type="Sprite" parent="Computer"]
-position = Vector2( -324, -24 )
-texture = ExtResource( 18 )
 
 [node name="PickleMech" parent="." instance=ExtResource( 20 )]
 position = Vector2( 6512, 1043 )
