@@ -24,6 +24,10 @@ config/name="Mooncord Gamejam 2020"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Util="*res://scripts/Util.gd"
+
 [display]
 
 window/vsync/use_vsync=false

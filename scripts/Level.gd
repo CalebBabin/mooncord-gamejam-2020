@@ -12,6 +12,10 @@ func _ready():
 	var player = get_node("player")
 	player.connect("fire_bullet", self, "_on_fire_bullet")
 	
+	var cultists = $Cultists.get_children()
+	for cultist in cultists:
+		cultist.connect("fire_laser", self, "_on_fire_laser")
+	
 	Bullet = preload("res://scenes/Bullet.tscn")
 	pass # Replace with function body.
 
@@ -20,6 +24,11 @@ func _ready():
 #func _process(delta):
 #	pass
 func _on_fire_bullet(position, direction, distance) -> void:
+	var bullet = Bullet.instance()
+	bullet.init(position, direction, distance)
+	add_child(bullet)
+
+func _on_fire_laser(position, direction, distance) -> void:
 	var bullet = Bullet.instance()
 	bullet.init(position, direction, distance)
 	add_child(bullet)

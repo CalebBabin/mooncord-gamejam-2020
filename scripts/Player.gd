@@ -171,3 +171,4 @@ func attack_hit(attack) -> void:
 
 func projectile_hit(projectile) -> void:
 	print("Player hit by projectile, ouch!", projectile)
+	

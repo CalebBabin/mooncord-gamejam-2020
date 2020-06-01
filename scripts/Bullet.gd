@@ -11,11 +11,10 @@ var direction
 var is_dead:bool = false
 
 func init(position, direction_angle, distance) -> void:
-	direction = Vector2(cos(direction_angle), sin(direction_angle))
-	velocity_direction = direction
+	velocity_direction = Vector2(cos(direction_angle), sin(direction_angle))
 		
 	self.set_rotation(direction_angle)
-	self.position = position + direction*distance
+	self.position = position + velocity_direction*distance
 	
 	
 	add_to_group("projectiles")

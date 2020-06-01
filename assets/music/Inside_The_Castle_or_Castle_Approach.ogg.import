@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Inside_The_Castle_or_Castle_Approach.ogg-6301c39eabc4235ec67939d30f23ed7e.oggstr"
+
+[deps]
+
+source_file="res://assets/music/Inside_The_Castle_or_Castle_Approach.ogg"
+dest_files=[ "res://.import/Inside_The_Castle_or_Castle_Approach.ogg-6301c39eabc4235ec67939d30f23ed7e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

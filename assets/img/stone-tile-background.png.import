@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tree_BEEG_tile.png-beb2b366bd74735c068960ca8d9da09b.stex"
+path="res://.import/stone-tile-background.png-6e739525bf78467436f3e7b9d1748395.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/tree_BEEG_tile.png"
-dest_files=[ "res://.import/tree_BEEG_tile.png-beb2b366bd74735c068960ca8d9da09b.stex" ]
+source_file="res://assets/img/stone-tile-background.png"
+dest_files=[ "res://.import/stone-tile-background.png-6e739525bf78467436f3e7b9d1748395.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
