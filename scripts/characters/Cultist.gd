@@ -117,4 +117,4 @@ func projectile_hit(projectile) -> void:
 	velocity += projectile.velocity_direction*KNOCKBACK_AMOUNT
 	if !dying:
 		dying = OS.get_ticks_msec()
-		print("cultist dying")
+		remove_child($CollisionShape2D)

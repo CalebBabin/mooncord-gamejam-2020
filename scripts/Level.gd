@@ -6,16 +6,19 @@ extends Node
 # var b = "text"
 var Bullet
 var Laser
-
+onready var player = find_node("Player")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var player = get_node("Player")
 	player.connect("fire_bullet", self, "_on_fire_bullet")
 	
 	var cultists = $Cultists.get_children()
 	for cultist in cultists:
 		cultist.connect("fire_laser", self, "_on_fire_laser")
+	
+	var bats = $Bats.get_children()
+	for bat in bats:
+		bat.init(player)
 	
 	Bullet = preload("res://scenes/Bullet.tscn")
 	Laser = preload("res://scenes/Laser.tscn")

@@ -32,6 +32,7 @@ const FLOOR = Vector2(0, -1)
 const ANIMATION_THRESHOLD = MAX_SPEED/4
 const JUMP_AVAILABILITY_TIMEOUT = 250
 const KNOCKBACK_AMOUNT = 800
+const GROUND_ANIMATION_THRESHOLD = 250
 
 const MAX_GUN_SPEED = 5.0
 const GUN_ACCELERATION = 0.5
@@ -53,7 +54,7 @@ func setup_camera() -> void:
 	camera.name = "Camera2D"
 	camera.current = true
 	add_child(camera)
-	
+
 func _unhandled_input(_event:InputEvent):
 	if Input.is_action_just_pressed("ui_up") && last_on_ground + JUMP_AVAILABILITY_TIMEOUT >= OS.get_ticks_msec():
 		velocity.y -= JUMP_POWER
@@ -138,7 +139,7 @@ func _physics_process(delta:float):
 	lastPosition = self.position
 
 	if !smashing:
-		if !on_ground:
+		if !on_ground && OS.get_ticks_msec() - last_on_ground > GROUND_ANIMATION_THRESHOLD:
 			if velocity.y > 0:
 				if lastVelocity.x > 0:
 					animationPlayer.play("LandRight")
