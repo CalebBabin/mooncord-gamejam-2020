@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ouch_5-old1.wav-da626736bcb6c931f415c54cdea86b10.sample"
+
+[deps]
+
+source_file="res://assets/sounds/ouch_5-old1.wav"
+dest_files=[ "res://.import/ouch_5-old1.wav-da626736bcb6c931f415c54cdea86b10.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

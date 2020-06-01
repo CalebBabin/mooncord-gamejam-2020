@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/img/portal.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 28.0
+height = 56.0
+
+[node name="Portal" type="StaticBody2D"]
+collision_layer = 9
+collision_mask = 9
+
+[node name="portal" type="Sprite" parent="."]
+position = Vector2( 1, 4 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 2 )
+shape = SubResource( 1 )

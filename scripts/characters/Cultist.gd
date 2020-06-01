@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 signal fire_laser
 
+var damage_group = 1
+
 var velocity = Vector2()
 var lastVelocity = velocity
 var on_ground = false
@@ -12,6 +14,7 @@ var attacking = false
 var attacked = false
 var dying = false
 onready var animationPlayer = $AnimationPlayer
+var player
 
 const ACTIVITY_DELAY = 5000
 const MAX_SPEED = 200
@@ -27,16 +30,20 @@ const DYING_LENGTH = 5000
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var _ignored = animationPlayer.connect("animation_finished", self, "_on_AnimationPlayer_finished")
-	pass # Replace with function body.
+
+func init(_player):
+	player = _player
+
 
 func attack() -> void:
-	if !attacked && !dying:
+	if !attacked && !dying && player:
+		print(position.angle_to(player.position))
 		if direction > 0:
 			animationPlayer.play("AttackRight")
-			emit_signal("fire_laser", self.position, Vector2(1,0).angle(), 60, Constants.PhysicsMasks.PLAYER_PROJECTILE_COLLISIONS)
+			emit_signal("fire_laser", self.position, position.direction_to(player.position), 10, Constants.PhysicsMasks.ENEMY_PROJECTILE_COLLISIONS)
 		if direction < 0:
 			animationPlayer.play("AttackLeft")
-			emit_signal("fire_laser", self.position, Vector2(-1,0).angle(), 60, Constants.PhysicsMasks.PLAYER_PROJECTILE_COLLISIONS)
+			emit_signal("fire_laser", self.position, position.direction_to(player.position), 10, Constants.PhysicsMasks.ENEMY_PROJECTILE_COLLISIONS)
 		
 		if lastDirection != 0:
 			attacking = true

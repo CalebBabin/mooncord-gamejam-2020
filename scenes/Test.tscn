@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
+[ext_resource path="res://scenes/characters/Bat.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/img/pickle_jar.png" type="Texture" id=2]
 [ext_resource path="res://assets/img/pickle_shatter.png" type="Texture" id=3]
 [ext_resource path="res://assets/img/pickle.png" type="Texture" id=4]
@@ -9,6 +10,7 @@
 [ext_resource path="res://assets/img/MRE/hand-open-posterized.png" type="Texture" id=8]
 [ext_resource path="res://assets/img/MRE/hand-grasped-posterized.png" type="Texture" id=9]
 [ext_resource path="res://scenes/characters/Cultist.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/characters/Vulps.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/WorldMap.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scripts/Level.gd" type="Script" id=14]
 
@@ -39,7 +41,6 @@ position = Vector2( -3365, 247 )
 [node name="HandOfGod" type="AnimatedSprite" parent="."]
 position = Vector2( 2242, 290 )
 frames = SubResource( 1 )
-frame = 1
 speed_scale = 0.3
 playing = true
 
@@ -48,6 +49,7 @@ modulate = Color( 0, 0, 1, 1 )
 position = Vector2( 3917, 850 )
 scale = Vector2( 0.163842, 0.163842 )
 frames = SubResource( 1 )
+frame = 1
 speed_scale = 0.3
 playing = true
 offset = Vector2( 0, -71.333 )
@@ -57,6 +59,7 @@ modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 3785, 850.345 )
 scale = Vector2( 0.163842, 0.163842 )
 frames = SubResource( 1 )
+frame = 1
 speed_scale = 0.3
 playing = true
 offset = Vector2( 0, -71.333 )
@@ -66,7 +69,6 @@ modulate = Color( 0, 1, 0, 1 )
 position = Vector2( 3845, 850.377 )
 scale = Vector2( 0.163842, 0.163842 )
 frames = SubResource( 1 )
-frame = 1
 speed_scale = 0.1
 playing = true
 offset = Vector2( 0, -71.333 )
@@ -95,3 +97,59 @@ position = Vector2( 4346, 1228 )
 
 [node name="Cultist6" parent="Cultists" instance=ExtResource( 10 )]
 position = Vector2( 7722, 1350 )
+
+[node name="Vulps" parent="Cultists" instance=ExtResource( 11 )]
+position = Vector2( -3354, 134 )
+
+[node name="Bats" type="Node2D" parent="."]
+
+[node name="Bat" parent="Bats" instance=ExtResource( 1 )]
+position = Vector2( 7452, 841 )
+
+[node name="Bat2" parent="Bats" instance=ExtResource( 1 )]
+position = Vector2( 6630, 698 )
+
+[node name="Bat3" parent="Bats" instance=ExtResource( 1 )]
+position = Vector2( 5474, 889 )
+
+[node name="Bat4" parent="Bats" instance=ExtResource( 1 )]
+position = Vector2( 2809, 278 )
+
+[node name="Bat5" parent="Bats" instance=ExtResource( 1 )]
+position = Vector2( 1519, -286 )
+
+[node name="Bat6" parent="Bats" instance=ExtResource( 1 )]
+position = Vector2( -353, -104 )
+
+[node name="Bat7" parent="Bats" instance=ExtResource( 1 )]
+position = Vector2( -1440, -37 )
+
+[node name="Bat8" parent="Bats" instance=ExtResource( 1 )]
+position = Vector2( -1913, 30 )
+
+[node name="Bat9" parent="Bats" instance=ExtResource( 1 )]
+position = Vector2( -1617, 207 )
+
+[node name="Bat10" parent="Bats" instance=ExtResource( 1 )]
+position = Vector2( -2282, -67 )
+
+[node name="Bat11" parent="Bats" instance=ExtResource( 1 )]
+position = Vector2( -2156, 221 )
+
+[node name="Bat12" parent="Bats" instance=ExtResource( 1 )]
+position = Vector2( -1956, -186 )
+
+[node name="Bat13" parent="Bats" instance=ExtResource( 1 )]
+position = Vector2( -1705, -53 )
+
+[node name="Bat14" parent="Bats" instance=ExtResource( 1 )]
+position = Vector2( -1542, -356 )
+
+[node name="Bat15" parent="Bats" instance=ExtResource( 1 )]
+position = Vector2( -1801, -408 )
+
+[node name="Bat16" parent="Bats" instance=ExtResource( 1 )]
+position = Vector2( -2171, -378 )
+
+[node name="Bat17" parent="Bats" instance=ExtResource( 1 )]
+position = Vector2( -2452, -260 )

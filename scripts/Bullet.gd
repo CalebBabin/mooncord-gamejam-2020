@@ -11,12 +11,12 @@ var die_on_world_collide
 
 var is_dead:bool = false
 
-func init(position, direction_angle, distance, die_on_world = false, ttl = 10, projectile_speed = 1500) -> void:
+func init(position, velocity:Vector2, distance, die_on_world = false, ttl = 10, projectile_speed = 1500) -> void:
 	speed = projectile_speed
-	velocity_direction = Vector2(cos(direction_angle), sin(direction_angle))
+	velocity_direction = velocity
 	die_on_world_collide = die_on_world
 	TTL = ttl
-	self.set_rotation(direction_angle)
+	self.set_rotation(velocity.angle_to_point(Vector2(0,0)))
 	self.position = position + velocity_direction*distance
 	
 	

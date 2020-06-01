@@ -13,6 +13,12 @@ static func convert_enum_to_bitmask(enum_values:Array) -> int:
 
 	return bit_mask
 
+
+# This is just rand_range but that returns an integer, not a float.
+static func randint_range(inclusive_lowerbound:int, inclusive_upperbound:int) -> int:
+	return int(round(rand_range(inclusive_lowerbound, inclusive_upperbound)))
+
+
 # Plays the sound file at the specified path. This will be added to "node" and
 # will automatically be freed when the sound is done playing.
 static func add_sound_to_node_by_sound_file(sound_path:String, node:Node, d2 = false) -> void:

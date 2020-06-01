@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/img/MRE/hand-open-posterized.png" type="Texture" id=1]
 [ext_resource path="res://assets/img/MRE/hand-grasped-posterized.png" type="Texture" id=2]
 [ext_resource path="res://scripts/MRE.gd" type="Script" id=3]
 [ext_resource path="res://scenes/mreprops/Menu69.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/img/light.png" type="Texture" id=5]
+[ext_resource path="res://assets/fonts/ShareTechMono-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://assets/img/mre_tray.png" type="Texture" id=7]
 [ext_resource path="res://scenes/music/MREMusic.tscn" type="PackedScene" id=8]
 
@@ -16,11 +17,16 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="DynamicFont" id=2]
+size = 40
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
 [node name="MREScene" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="MREMusic" parent="." instance=ExtResource( 8 )]
-autoplay = false
 
 [node name="mre_tray" type="Sprite" parent="."]
 position = Vector2( 7, 40 )
@@ -50,4 +56,17 @@ texture_scale = 2.39
 shadow_enabled = true
 __meta__ = {
 "_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = -911.0
+margin_top = -452.0
+margin_right = -163.0
+margin_bottom = -308.0
+custom_fonts/font = SubResource( 2 )
+text = "Happy birthday, you beat the game.
+
+Enjoy an MRE"
+__meta__ = {
+"_edit_use_anchors_": false
 }

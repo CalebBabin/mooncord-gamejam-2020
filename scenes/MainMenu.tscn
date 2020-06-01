@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/fonts/ShareTechMono-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/MainMenu.gd" type="Script" id=2]
-[ext_resource path="res://assets/img/title_screen.png" type="Texture" id=4]
+[ext_resource path="res://scenes/music/TitleMusic.tscn" type="PackedScene" id=3]
 
 [sub_resource type="StyleBoxLine" id=1]
 
@@ -18,6 +18,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TitleMusic" parent="." instance=ExtResource( 3 )]
+autoplay = true
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -26,31 +29,29 @@ __meta__ = {
 }
 
 [node name="GridContainer" type="GridContainer" parent="CenterContainer"]
-margin_left = 29.0
-margin_top = 50.0
-margin_right = 995.0
-margin_bottom = 550.0
+margin_left = 835.0
+margin_top = 496.0
+margin_right = 1085.0
+margin_bottom = 583.0
 columns = 3
 
 [node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/GridContainer"]
-margin_right = 500.0
-margin_bottom = 500.0
+margin_bottom = 87.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TextureButton" type="TextureButton" parent="CenterContainer/GridContainer/CenterContainer3"]
-margin_right = 500.0
-margin_bottom = 500.0
-texture_normal = ExtResource( 4 )
+margin_top = 43.0
+margin_bottom = 43.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VSeparator" type="VSeparator" parent="CenterContainer/GridContainer"]
-margin_left = 504.0
-margin_right = 554.0
-margin_bottom = 500.0
+margin_left = 4.0
+margin_right = 54.0
+margin_bottom = 87.0
 custom_styles/separator = SubResource( 1 )
 custom_constants/separation = 50
 __meta__ = {
@@ -58,31 +59,30 @@ __meta__ = {
 }
 
 [node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/GridContainer"]
-margin_left = 558.0
-margin_right = 966.0
-margin_bottom = 500.0
+margin_left = 58.0
+margin_right = 250.0
+margin_bottom = 87.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="GridContainer" type="GridContainer" parent="CenterContainer/GridContainer/CenterContainer2"]
-margin_top = 206.0
-margin_right = 408.0
-margin_bottom = 293.0
+margin_right = 192.0
+margin_bottom = 87.0
 custom_constants/vseparation = 10
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TitleLabel" type="Label" parent="CenterContainer/GridContainer/CenterContainer2/GridContainer"]
-margin_right = 408.0
+margin_right = 192.0
 margin_bottom = 27.0
 custom_fonts/font = SubResource( 2 )
-text = "Metal Rising: Sypmhony of the Gear"
+text = "Layers of Cringe"
 
 [node name="StartButton" type="Button" parent="CenterContainer/GridContainer/CenterContainer2/GridContainer"]
 margin_top = 37.0
-margin_right = 408.0
+margin_right = 192.0
 margin_bottom = 57.0
 text = "Start Game"
 __meta__ = {
@@ -91,7 +91,7 @@ __meta__ = {
 
 [node name="LoadButton" type="Button" parent="CenterContainer/GridContainer/CenterContainer2/GridContainer"]
 margin_top = 67.0
-margin_right = 408.0
+margin_right = 192.0
 margin_bottom = 87.0
 text = "Load"
 __meta__ = {

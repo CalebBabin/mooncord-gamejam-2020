@@ -34,7 +34,6 @@ Constants="*res://scripts/Constants.gd"
 window/size/width=1920
 window/size/height=1080
 window/size/resizable=false
-window/size/borderless=true
 
 [input]
 
@@ -85,6 +84,16 @@ aim_left={
 aim_right={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_1={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":49,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_9={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":57,"unicode":0,"echo":false,"script":null)
  ]
 }
 

@@ -1,0 +1,192 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/img/vulps.png" type="Texture" id=1]
+[ext_resource path="res://scripts/characters/Vulps.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 27.6802
+height = 36.8164
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 128, 0, 128, 128 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=5]
+resource_name = "IdleDown"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "IdleLeft"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "IdleRight"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.133333
+loop = true
+step = 0.0666667
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0666667 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "WalkRight"
+length = 0.133333
+loop = true
+step = 0.0666667
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0666667 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1, 1 ) ]
+}
+
+[node name="Vulps" type="KinematicBody2D"]
+scale = Vector2( 2, 2 )
+collision_layer = 4
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 6, 0 )
+scale = Vector2( -1, 1 )
+frames = SubResource( 4 )
+speed_scale = 3.0
+playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/IdleDown = SubResource( 5 )
+anims/IdleLeft = SubResource( 6 )
+anims/IdleRight = SubResource( 7 )
+anims/WalkLeft = SubResource( 8 )
+anims/WalkRight = SubResource( 9 )
