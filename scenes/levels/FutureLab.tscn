@@ -9,9 +9,9 @@
 [ext_resource path="res://scenes/music/FutureMusic.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/characters/Bat.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scripts/Level.gd" type="Script" id=9]
+[ext_resource path="res://scripts/PortalLevel3.gd" type="Script" id=10]
 [ext_resource path="res://scenes/characters/Vulps.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/props/Portal.tscn" type="PackedScene" id=17]
-[ext_resource path="res://scripts/PortalLevel2.gd" type="Script" id=18]
 
 [sub_resource type="TileSet" id=1]
 0/name = "scifi-tile-wall.png 0"
@@ -302,7 +302,7 @@ tile_data = PoolIntArray( -1179594, 1, 2, -1179593, 1, 2, -1179592, 1, 2, -11140
 
 [node name="Portal" parent="." instance=ExtResource( 17 )]
 position = Vector2( 9199, -12 )
-script = ExtResource( 18 )
+script = ExtResource( 10 )
 
 [node name="Cultist" parent="." instance=ExtResource( 6 )]
 position = Vector2( 5437, -530 )
