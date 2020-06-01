@@ -5,7 +5,7 @@ extends StaticBody2D
 # var a = 2
 # var b = "text"
 
-var portal_to_level = 3
+var portal_to_level = 4
 
 func get_level():
 	return portal_to_level
