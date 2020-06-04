@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/img/scifi-tile-wall.png" type="Texture" id=1]
-[ext_resource path="res://scenes/PlayerBlue.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/img/space.png" type="Texture" id=3]
 [ext_resource path="res://assets/img/scifi-tile.png" type="Texture" id=4]
 [ext_resource path="res://scenes/props/Computer.tscn" type="PackedScene" id=5]
@@ -12,6 +12,7 @@
 [ext_resource path="res://scripts/PortalLevel3.gd" type="Script" id=10]
 [ext_resource path="res://scenes/characters/Vulps.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/props/Portal.tscn" type="PackedScene" id=17]
+
 
 [sub_resource type="TileSet" id=1]
 0/name = "scifi-tile-wall.png 0"

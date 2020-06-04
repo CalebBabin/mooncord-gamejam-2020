@@ -5,6 +5,9 @@ extends Node2D
 # var a = 2
 # var b = "text"
 
+signal game_over
+signal select_level
+
 var camera:Camera2D
 var hand
 var hand_sprite

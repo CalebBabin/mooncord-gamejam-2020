@@ -12,10 +12,16 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Projectile",
 "language": "GDScript",
-"path": "res://scripts/Bullet.gd"
+"path": "res://scripts/projectiles/Bullet.gd"
+}, {
+"base": "Node",
+"class": "Stats",
+"language": "GDScript",
+"path": "res://scripts/Stats.gd"
 } ]
 _global_script_class_icons={
-"Projectile": ""
+"Projectile": "",
+"Stats": ""
 }
 
 [application]
@@ -28,6 +34,7 @@ config/icon="res://icon.png"
 
 Util="*res://scripts/Util.gd"
 Constants="*res://scripts/Constants.gd"
+Stats="res://scripts/Stats.gd"
 
 [display]
 

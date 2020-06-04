@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/img/pickle_jar.png" type="Texture" id=2]
 [ext_resource path="res://assets/img/pickle_shatter.png" type="Texture" id=3]
 [ext_resource path="res://assets/img/pickle.png" type="Texture" id=4]
-[ext_resource path="res://scenes/PlayerBlue.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/img/CUM_JAR.png" type="Texture" id=6]
 [ext_resource path="res://assets/img/cardboard_boxerino.png" type="Texture" id=7]
 [ext_resource path="res://assets/img/MRE/hand-open-posterized.png" type="Texture" id=8]
@@ -41,6 +41,7 @@ position = Vector2( -3365, 247 )
 [node name="HandOfGod" type="AnimatedSprite" parent="."]
 position = Vector2( 2242, 290 )
 frames = SubResource( 1 )
+frame = 1
 speed_scale = 0.3
 playing = true
 
@@ -49,7 +50,6 @@ modulate = Color( 0, 0, 1, 1 )
 position = Vector2( 3917, 850 )
 scale = Vector2( 0.163842, 0.163842 )
 frames = SubResource( 1 )
-frame = 1
 speed_scale = 0.3
 playing = true
 offset = Vector2( 0, -71.333 )
@@ -59,7 +59,6 @@ modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 3785, 850.345 )
 scale = Vector2( 0.163842, 0.163842 )
 frames = SubResource( 1 )
-frame = 1
 speed_scale = 0.3
 playing = true
 offset = Vector2( 0, -71.333 )
@@ -69,6 +68,7 @@ modulate = Color( 0, 1, 0, 1 )
 position = Vector2( 3845, 850.377 )
 scale = Vector2( 0.163842, 0.163842 )
 frames = SubResource( 1 )
+frame = 1
 speed_scale = 0.1
 playing = true
 offset = Vector2( 0, -71.333 )

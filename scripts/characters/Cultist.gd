@@ -95,11 +95,11 @@ func _physics_process(_delta:float):
 		if direction == 0:
 			velocity.x = lerp(velocity.x, 0, FRICTION)
 
-		var collisionCounter = get_slide_count() - 1
-		if collisionCounter > -1:
-			var col = get_slide_collision(collisionCounter)
-			if (col.normal.x != 0):
-				direction = direction * -1
+		#var collisionCounter = get_slide_count() - 1
+		#if collisionCounter > -1:
+		#	var col = get_slide_collision(collisionCounter)
+		#	if (col.normal.x != 0):
+		#		direction = direction * -1
 	
 		if !attacking:
 			if direction > 0:

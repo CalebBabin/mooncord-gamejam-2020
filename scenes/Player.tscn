@@ -665,16 +665,16 @@ __meta__ = {
 [node name="Gun" type="AnimatedSprite" parent="GunNode"]
 position = Vector2( 46.9846, -15.0926 )
 frames = SubResource( 7 )
-frame = 1
 speed_scale = 3.0
 
 [node name="Body" type="AnimatedSprite" parent="."]
 position = Vector2( -3.943, -0.285 )
 scale = Vector2( -1, 1 )
 frames = SubResource( 39 )
-frame = 31
+frame = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( -7.04201, 6.79938 )
 shape = SubResource( 40 )
 

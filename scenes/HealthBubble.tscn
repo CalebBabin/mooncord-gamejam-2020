@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/img/health-bubble.png" type="Texture" id=1]
+[ext_resource path="res://assets/img/heartsprite.png" type="Texture" id=1]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -12,3 +12,4 @@ animations = [ {
 
 [node name="HealthBubble" type="AnimatedSprite"]
 frames = SubResource( 1 )
+playing = true

@@ -16,6 +16,8 @@ var lastVelocity = Vector2(0,0)
 var lastPosition = Vector2(0,0)
 var camera:Camera2D
 
+var stats
+
 onready var gun = $GunNode
 onready var gunAnimation = $GunAnimationPlayer
 

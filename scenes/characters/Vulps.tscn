@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/img/vulps.png" type="Texture" id=1]
 [ext_resource path="res://scripts/characters/Vulps.gd" type="Script" id=2]
@@ -7,24 +7,26 @@
 radius = 27.6802
 height = 36.8164
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 1 )
 region = Rect2( 128, 0, 128, 128 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"frames": [ SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=5]
-resource_name = "IdleDown"
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( -12.3284, 11.0437, 7.81878, -21.805, -1.52485, -29.5427, -2.25482, -40.4923, 10.1547, -37.2804, 12.6366, -45.6021, 20.9583, -37.8644, 34.9737, -49.1059, 23.5862, -35.2365, 26.2141, -31.8786, 38.4776, -39.0323, 28.55, -28.5208, 50.0111, -29.9807, 56.4349, -18.3012, 53.953, -16.6952, 52.639, -22.389, 47.5292, -25.4549, 35.7037, -22.243, 32.1998, -20.4911, 34.3897, -9.68751, 31.7618, -9.24953, 27.966, -18.5932, 15.2645, -6.03765, 10.5927, 7.97779, 23.5428, 18.801, 20.1086, 26.4207, 13.6695, 16.9766, 12.9182, 19.6596, 2.07899, 30.3915, -6.72118, 26.6353, -3.50161, 22.7718, -15.5214, 14.7229, -26.3606, 3.45439, -25.3947, -2.34084, -13.6969, 5.1715 )
+
+[sub_resource type="Animation" id=6]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:scale")
@@ -51,8 +53,7 @@ tracks/1/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "IdleLeft"
+[sub_resource type="Animation" id=7]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:scale")
@@ -79,8 +80,7 @@ tracks/1/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "IdleRight"
+[sub_resource type="Animation" id=8]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:scale")
@@ -107,7 +107,7 @@ tracks/1/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 0.133333
 loop = true
 step = 0.0666667
@@ -136,8 +136,7 @@ tracks/1/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "WalkRight"
+[sub_resource type="Animation" id=10]
 length = 0.133333
 loop = true
 step = 0.0666667
@@ -180,13 +179,20 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 6, 0 )
 scale = Vector2( -1, 1 )
-frames = SubResource( 4 )
+frames = SubResource( 5 )
+frame = 1
 speed_scale = 3.0
 playing = true
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="AnimatedSprite"]
+position = Vector2( 6, 0 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+occluder = SubResource( 2 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/IdleDown = SubResource( 5 )
-anims/IdleLeft = SubResource( 6 )
-anims/IdleRight = SubResource( 7 )
-anims/WalkLeft = SubResource( 8 )
-anims/WalkRight = SubResource( 9 )
+anims/IdleDown = SubResource( 6 )
+anims/IdleLeft = SubResource( 7 )
+anims/IdleRight = SubResource( 8 )
+anims/WalkLeft = SubResource( 9 )
+anims/WalkRight = SubResource( 10 )

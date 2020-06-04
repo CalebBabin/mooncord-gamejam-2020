@@ -8,14 +8,17 @@ signal select_level
 var Bullet
 var Laser
 var Slash
-onready var player = find_node("Player")
+var player_stats:Stats
+var player
 
 func _on_player_select_level(level):
 	emit_signal("select_level", level)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	player = find_node("Player")
+	player.stats = player_stats
+
 	player.connect("fire_bullet", self, "_on_fire_bullet")
 	player.connect("fire_slash", self, "_on_fire_slash")
 	player.connect("death", self, "_on_player_death")
@@ -30,11 +33,13 @@ func _ready():
 	for bat in bats:
 		bat.init(player)
 	
-	Bullet = preload("res://scenes/Bullet.tscn")
-	Laser = preload("res://scenes/Laser.tscn")
-	Slash = preload("res://scenes/Slash.tscn")
+	Bullet = preload("res://scenes/projectiles/Bullet.tscn")
+	Laser = preload("res://scenes/projectiles/Laser.tscn")
+	Slash = preload("res://scenes/projectiles/Slash.tscn")
 	pass # Replace with function body.
 
+func init_player_stats(_player_stats):
+	player_stats = _player_stats
 
 var game_ending = false
 var game_end_opacity = 1
