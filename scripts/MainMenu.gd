@@ -5,13 +5,13 @@ onready var start_game_button:Button = $CenterContainer/GridContainer/CenterCont
 
 signal start_game(level)
 
-func start_game() -> void:
+func _start_game() -> void:
 	emit_signal("start_game", 1)
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var _ignored = start_game_button.connect("pressed", self, "start_game")
+	var _ignored = start_game_button.connect("pressed", self, "_start_game")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
