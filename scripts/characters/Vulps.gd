@@ -57,11 +57,17 @@ func _physics_process(_delta:float):
 func attack_hit(attack) -> void:
 	print("Hit by attack", attack)
 
+
+const hurt_sound_list = [
+	"res://assets/sounds/damage_wolf_man.wav",
+	"res://assets/sounds/snarl.wav",
+]
 func projectile_hit(projectile) -> void:
 	velocity += projectile.velocity_direction*KNOCKBACK_AMOUNT
 	if !dying:
 		dying = OS.get_ticks_msec()
 		remove_child($CollisionShape2D)
+		Util.add_sound_to_node_by_sound_file(hurt_sound_list[randi() % hurt_sound_list.size()], self, true)
 
 func collided_with_body(body:Node) -> void:
 	if dying:
