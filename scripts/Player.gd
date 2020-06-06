@@ -38,7 +38,7 @@ const JUMP_POWER = 800
 const GUN_KNOCKBACK = 325
 const GRAVITY = 20
 const FLOOR = Vector2(0, -1)
-const ANIMATION_THRESHOLD = 0
+const ANIMATION_THRESHOLD = 1
 const JUMP_AVAILABILITY_TIMEOUT = 250
 const KNOCKBACK_AMOUNT = 600
 const ATTACK_KNOCKBACK_AMOUNT = 800
@@ -179,11 +179,11 @@ func _physics_process(delta:float):
 	
 	velocity = move_and_slide(velocity, FLOOR)
 	
-	if get_slide_count() > 0:
-			var collision:KinematicCollision2D = get_slide_collision(0)
-			var body:Object = collision.collider
-			if body.has_method("get_level"):
-				emit_signal("select_level", body.get_level())
+	for i in get_slide_count():
+		var collision:KinematicCollision2D = get_slide_collision(i)
+		var body:Object = collision.collider
+		if body.has_method("get_level"):
+			emit_signal("select_level", body.get_level())
 
 	if (is_on_floor()):
 		on_ground = true

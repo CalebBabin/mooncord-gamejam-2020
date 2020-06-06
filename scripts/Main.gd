@@ -37,13 +37,16 @@ func _on_level_select(level, player_stats) -> void:
 		GameplayAndUIScene = preload("res://scenes/levels/DankCastle.tscn")
 	elif level == 3:
 		GameplayAndUIScene = preload("res://scenes/levels/FutureLab.tscn")
+	elif level == 69:
+		GameplayAndUIScene = preload("res://scenes/minigames/MRE.tscn")
 	else:
 		GameplayAndUIScene = preload("res://scenes/levels/CorruptedForest.tscn")
 
 	var gameplay_and_ui_scene:Node = GameplayAndUIScene.instance()
 	add_gameplay_signal_listeners(gameplay_and_ui_scene)
 	add_child(gameplay_and_ui_scene)
-	gameplay_and_ui_scene.init_player_stats(player_stats)
+	if gameplay_and_ui_scene.has_method("init_player_stats"):
+		gameplay_and_ui_scene.init_player_stats(player_stats)
 
 func add_gameplay_signal_listeners(scene):
 	scene.connect("game_over", self, "_on_game_over")

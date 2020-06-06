@@ -12,7 +12,7 @@ var player_stats:Stats
 var player
 
 func _on_player_select_level(level):
-	emit_signal("select_level", level)
+	emit_signal("select_level", level, player_stats)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -51,6 +51,10 @@ func _process(delta):
 			emit_signal("game_over")
 		self.modulate = Color(0,0,0,game_end_opacity)
 	pass
+
+func _unhandled_input(_event:InputEvent):
+	if Input.is_action_just_pressed("ui_pause"): 
+		emit_signal("select_level", 69, player_stats)
 
 func _on_fire_bullet(position:Vector2, velocity:Vector2, distance, collision_mask) -> void:
 	var bullet = Bullet.instance()

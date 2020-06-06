@@ -13,6 +13,8 @@ var hand
 var hand_sprite
 var grasp = false
 var hand_velocity = Vector2.ZERO
+onready var spawn_locations = $SpawnAreas.get_children()
+
 
 const HAND_ACCEL = 10
 const HAND_MAX_SPEED = 300
@@ -27,6 +29,19 @@ func _ready():
 	
 	hand = $Hand
 	hand_sprite = $Hand/HandSprite
+	
+	var spawnable_items = [
+		preload("res://scenes/minigames/mreprops/Beans.tscn"),
+		preload("res://scenes/minigames/mreprops/Potato.tscn"),
+		preload("res://scenes/minigames/mreprops/WeebMeat.tscn"),
+		preload("res://scenes/minigames/mreprops/Burger.tscn"),
+		preload("res://scenes/minigames/mreprops/Shrek.tscn"),
+	]
+	
+	for spawn in spawnable_items:
+		var location = random_spawn_location()
+		var item = spawn.instance()
+		location.add_child(item)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -53,3 +68,21 @@ func _unhandled_input(_event:InputEvent):
 			hand_sprite.frame = 1
 		else:
 			hand_sprite.frame = 0
+
+
+func shuffleList(list):
+	var shuffledList = []
+	var indexList = range(list.size())
+	for i in range(list.size()):
+		var x = randi()%indexList.size()
+		shuffledList.append(list[indexList[x]])
+		indexList.remove(x)
+	return shuffledList
+
+func random_spawn_location():
+	var random_locations = shuffleList(spawn_locations)
+	randi()
+	for location in random_locations:
+		if (location.get_children().size() == 0):
+			return location
+	return random_locations[randi() % random_locations.size()]
