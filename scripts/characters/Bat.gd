@@ -26,10 +26,10 @@ func init(_player):
 
 func _physics_process(_delta:float):
 	if player && player.position.distance_to(self.position) < MAXIMUM_VISION:
-		target_position = player.position
+		target_position = player.get_global_position()
 	
 	if !dying:
-		velocity += ACCELERATION*position.direction_to(target_position)
+		velocity += ACCELERATION*get_global_position().direction_to(target_position)
 		velocity = move_and_slide(velocity)
 		
 		if get_slide_count() > 0:

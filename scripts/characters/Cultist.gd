@@ -25,6 +25,7 @@ const FLOOR = Vector2(0, -1)
 const ANIMATION_THRESHOLD = 0.1
 const KNOCKBACK_AMOUNT = 500
 const DYING_LENGTH = 5000
+const SLOPE_THRESHOLD = 0.4
 
 
 # Called when the node enters the scene tree for the first time.
@@ -95,11 +96,11 @@ func _physics_process(_delta:float):
 		if direction == 0:
 			velocity.x = lerp(velocity.x, 0, FRICTION)
 
-		#var collisionCounter = get_slide_count() - 1
-		#if collisionCounter > -1:
-		#	var col = get_slide_collision(collisionCounter)
-		#	if (col.normal.x != 0):
-		#		direction = direction * -1
+		var collisionCounter = get_slide_count() - 1
+		if collisionCounter > -1:
+			var col = get_slide_collision(collisionCounter)
+			if (col.normal.x != 0 && abs(col.normal.x) > SLOPE_THRESHOLD):
+				direction = direction * -1
 	
 		if !attacking:
 			if direction > 0:

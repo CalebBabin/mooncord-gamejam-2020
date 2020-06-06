@@ -149,7 +149,7 @@ points = PoolVector2Array( 0, 0, 64, 0, 128, 16, 128, 128, 0, 128 )
 script = ExtResource( 9 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 126, 13 )
+position = Vector2( 234, 130 )
 
 [node name="Portal" parent="." instance=ExtResource( 12 )]
 position = Vector2( 12391, -918 )
@@ -171,17 +171,17 @@ position = Vector2( 6496, 339 )
 [node name="Cultist4" parent="Cultists" instance=ExtResource( 6 )]
 position = Vector2( 7387, 339 )
 
-[node name="Vulps" parent="Cultists" instance=ExtResource( 11 )]
-position = Vector2( 8083, 411 )
-
 [node name="Cultist5" parent="Cultists" instance=ExtResource( 6 )]
 position = Vector2( 1986, -104 )
+
+[node name="Vulps" parent="Cultists" instance=ExtResource( 11 )]
+position = Vector2( 275, 105 )
 
 [node name="Bats" type="Node2D" parent="."]
 position = Vector2( 126, 13 )
 
 [node name="Bat" parent="Bats" instance=ExtResource( 8 )]
-position = Vector2( 1720, -364 )
+position = Vector2( 1783, -715 )
 
 [node name="Bat2" parent="Bats" instance=ExtResource( 8 )]
 position = Vector2( 9283, -1050 )
