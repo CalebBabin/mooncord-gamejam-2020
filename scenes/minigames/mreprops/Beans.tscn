@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/img/MRE/beanms.png" type="Texture" id=1]
+[ext_resource path="res://scenes/minigames/mreprops/MRE_item.gd" type="Script" id=2]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( -99, -68, -81, -60, -38, -57, -8, -57, -3, -48, -2, -58, 33, -58, 69, -61, 88, -69, 83, -59, 87, -33, 89, -18, 84, -4, 87, 23, 84, 61, 86, 72, 85, 83, 89, 100, 77, 112, 51, 118, -63, 113, -95, 103, -101, 98, -96, 60, -95, 16, -101, 7, -100, -5, -100, -30, -96, -42, -101, -55 )
@@ -9,6 +10,7 @@ polygon = PoolVector2Array( -99, -68, -81, -60, -38, -57, -8, -57, -3, -48, -2, 
 extents = Vector2( 92, 101 )
 
 [node name="CanOfBeans" type="StaticBody2D"]
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 3, -88 )

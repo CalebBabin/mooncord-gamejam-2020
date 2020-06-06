@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/img/MRE/weeb_flesh.png" type="Texture" id=1]
+[ext_resource path="res://scenes/minigames/mreprops/MRE_item.gd" type="Script" id=2]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 98, 7, 73, 48, 30, 84, -44, 107, -104, 105, -98, 70, -63, -8, -43, -30, -37, -52, -11, -89, 25, -110, 63, -96, 85, -78, 90, -61, 99, -29 )
@@ -10,6 +11,7 @@ radius = 69.6092
 height = 132.146
 
 [node name="WeebMeat" type="StaticBody2D"]
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_horizontal_guides_": [ -108.0 ]
 }

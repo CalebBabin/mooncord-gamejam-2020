@@ -29,6 +29,7 @@ func _ready():
 	
 	hand = $Hand
 	hand_sprite = $Hand/HandSprite
+	hand_sprite.connect("animation_finished", self, "_on_hand_animation_finished")
 	
 	$Menu69.connect("open_package", self, "_spawn_items")
 
@@ -63,17 +64,29 @@ func _process(delta):
 	hand.position += hand_velocity*delta
 
 
-func _unhandled_input(_event:InputEvent):
-	if Input.is_action_just_pressed("ui_accept"):
-		grasp = !grasp
-		if grasp:
-			hand_sprite.frame = 1
-			var overlap = hand.get_overlapping_bodies()
-			if overlap.size() > 0 && overlap[0].has_method("grasped"):
-				overlap[0].grasped()
-		else:
-			hand_sprite.frame = 0
+const mre_open_sounds = [
+	"res://assets/sounds/vulpstasty.wav",
+	"res://assets/sounds/HISS2.wav",
+	"res://assets/sounds/HISS1.wav",
+	"res://assets/sounds/botch.wav",
+]
 
+func _unhandled_input(_event:InputEvent):
+	var _ignored = randi()
+	if Input.is_action_just_pressed("ui_accept"):
+		hand_sprite.frame = 1
+		hand_sprite.play()
+		var overlap = hand.get_overlapping_bodies()
+		if overlap.size() > 0:
+			if overlap[0].has_method("grasped"):
+				overlap[0].grasped()
+				Util.add_sound_to_node_by_sound_file(mre_open_sounds[randi() % mre_open_sounds.size()], self, true)
+			if overlap[0].has_method("eat"):
+				overlap[0].eat()
+				Util.add_sound_to_node_by_sound_file(mre_open_sounds[randi() % mre_open_sounds.size()], self, true)
+
+func _on_hand_animation_finished():
+	hand_sprite.stop()
 
 func shuffleList(list):
 	var shuffledList = []

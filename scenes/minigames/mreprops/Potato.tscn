@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/img/MRE/green_tato.png" type="Texture" id=1]
+[ext_resource path="res://scenes/minigames/mreprops/MRE_item.gd" type="Script" id=2]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 119, -109, 7, -85, -73, -46, -141, 1, -166, 64, -166, 109, -132, 148, -89, 170, -21, 168, 14, 163, 60, 130, 94, 81, 111, 61, 130, 56, 154, 32, 180, -22, 182, -52, 143, -104 )
@@ -10,6 +11,7 @@ radius = 98.3157
 height = 166.35
 
 [node name="Potato" type="StaticBody2D"]
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 11, -115 )
