@@ -38,7 +38,7 @@ const JUMP_POWER = 800
 const GUN_KNOCKBACK = 325
 const GRAVITY = 20
 const FLOOR = Vector2(0, -1)
-const ANIMATION_THRESHOLD = MAX_SPEED/4
+const ANIMATION_THRESHOLD = 0
 const JUMP_AVAILABILITY_TIMEOUT = 250
 const KNOCKBACK_AMOUNT = 600
 const ATTACK_KNOCKBACK_AMOUNT = 800
@@ -164,8 +164,12 @@ func _physics_process(delta:float):
 		velocity.y += GRAVITY
 	
 	if Input.is_action_pressed("ui_right"):
+		if velocity.x < 0:
+			velocity.x = 0
 		velocity.x += ACCELERATION
 	if Input.is_action_pressed("ui_left"):
+		if velocity.x > 0:
+			velocity.x = 0
 		velocity.x -= ACCELERATION
 
 	if !Input.is_action_pressed("ui_left") && !Input.is_action_pressed("ui_right"):
