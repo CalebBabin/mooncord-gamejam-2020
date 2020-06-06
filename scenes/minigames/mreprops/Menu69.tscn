@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/img/MRE/menu69.png" type="Texture" id=1]
+[ext_resource path="res://scenes/minigames/mreprops/Menu69.gd" type="Script" id=2]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( -198, -99, -188, -101, -162, -102, -140, -106, -78, -114, -52, -119, -35, -120, -23, -124, 0, -126, 40, -138, 72, -134, 148, -130, 180, -126, 181, -113, 190, -38, 191, 43, 181, 119, 170, 168, 156, 177, 107, 194, 63, 202, 18, 203, -33, 195, -78, 191, -132, 188, -160, 182, -179, 169, -184, 130, -200, 37, -208, -43 )
@@ -9,6 +10,7 @@ polygon = PoolVector2Array( -198, -99, -188, -101, -162, -102, -140, -106, -78, 
 extents = Vector2( 176, 167 )
 
 [node name="Menu69" type="StaticBody2D"]
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

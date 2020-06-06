@@ -30,6 +30,9 @@ func _ready():
 	hand = $Hand
 	hand_sprite = $Hand/HandSprite
 	
+	$Menu69.connect("open_package", self, "_spawn_items")
+
+func _spawn_items():
 	var spawnable_items = [
 		preload("res://scenes/minigames/mreprops/Beans.tscn"),
 		preload("res://scenes/minigames/mreprops/Potato.tscn"),
@@ -37,7 +40,6 @@ func _ready():
 		preload("res://scenes/minigames/mreprops/Burger.tscn"),
 		preload("res://scenes/minigames/mreprops/Shrek.tscn"),
 	]
-	
 	for spawn in spawnable_items:
 		var location = random_spawn_location()
 		var item = spawn.instance()
@@ -66,6 +68,9 @@ func _unhandled_input(_event:InputEvent):
 		grasp = !grasp
 		if grasp:
 			hand_sprite.frame = 1
+			var overlap = hand.get_overlapping_bodies()
+			if overlap.size() > 0 && overlap[0].has_method("grasped"):
+				overlap[0].grasped()
 		else:
 			hand_sprite.frame = 0
 

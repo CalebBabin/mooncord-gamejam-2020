@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/music/MREMusic.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/minigames/mreprops/Menu69.tscn" type="PackedScene" id=3]
@@ -7,6 +7,10 @@
 [ext_resource path="res://assets/img/MRE/hand-grasped-posterized.png" type="Texture" id=6]
 [ext_resource path="res://assets/img/MRE/hand-open-posterized.png" type="Texture" id=7]
 [ext_resource path="res://scripts/MRE.gd" type="Script" id=8]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 78.4506
+height = 77.8738
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -28,6 +32,9 @@ texture = ExtResource( 5 )
 
 [node name="SpawnAreas" type="Node2D" parent="."]
 position = Vector2( -13.7355, -189.983 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Area1" type="Node2D" parent="SpawnAreas"]
 position = Vector2( -402.46, 22.61 )
@@ -50,17 +57,20 @@ position = Vector2( -3.01471, 302.975 )
 current = true
 
 [node name="Menu69" parent="." instance=ExtResource( 3 )]
-visible = false
 
-[node name="Hand" type="Node2D" parent="."]
-position = Vector2( -282, 173 )
+[node name="Hand" type="Area2D" parent="."]
+position = Vector2( -255, 257 )
 __meta__ = {
 "_edit_group_": true
 }
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand"]
+position = Vector2( -39.2472, -74.5128 )
+rotation = 0.938987
+shape = SubResource( 2 )
+
 [node name="HandSprite" type="AnimatedSprite" parent="Hand"]
 modulate = Color( 0.503845, 0.792864, 0.992188, 1 )
-position = Vector2( 27, 84 )
 frames = SubResource( 1 )
 speed_scale = 0.1
 
