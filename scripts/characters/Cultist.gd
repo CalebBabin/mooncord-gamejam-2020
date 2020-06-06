@@ -38,7 +38,6 @@ func init(_player):
 
 func attack() -> void:
 	if !attacked && !dying && player:
-		print(position.angle_to(player.position))
 		if direction > 0:
 			animationPlayer.play("AttackRight")
 			emit_signal("fire_laser", self.position, position.direction_to(player.position), 10, Constants.PhysicsMasks.ENEMY_PROJECTILE_COLLISIONS)
