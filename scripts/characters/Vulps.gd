@@ -48,9 +48,9 @@ func _physics_process(_delta:float):
 		if $AnimatedSprite.rotation_degrees >= 90 && OS.get_ticks_msec() - dying > DYING_LENGTH:
 			queue_free()
 	else:
-		if velocity.x > 0:
+		if target_position.x - global_position.x > 0:
 			$AnimatedSprite.scale.x = -1
-		elif velocity.y < 0:
+		elif target_position.x - global_position.x < 0:
 			$AnimatedSprite.scale.x = 1
 		velocity.x = max(-MAX_SPEED, min(MAX_SPEED, velocity.x))
 
