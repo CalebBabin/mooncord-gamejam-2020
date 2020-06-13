@@ -8,11 +8,11 @@
 [ext_resource path="res://assets/img/MRE/hand-open-posterized.png" type="Texture" id=7]
 [ext_resource path="res://scripts/MRE.gd" type="Script" id=8]
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 78.4506
 height = 77.8738
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 7 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
@@ -67,11 +67,11 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hand"]
 position = Vector2( -39.2472, -74.5128 )
 rotation = 0.938987
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="HandSprite" type="AnimatedSprite" parent="Hand"]
 modulate = Color( 0.503845, 0.792864, 0.992188, 1 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 speed_scale = 0.75
 
 [node name="Light2D" type="Light2D" parent="."]
